@@ -1,4 +1,5 @@
 ﻿using HypeSport.Models;
+using HypeSport.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +8,26 @@ namespace HypeSport.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IHomeRepository _homeRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IHomeRepository homeRepository)
         {
+            _homeRepository = homeRepository;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string sterm="", int categoryId=0)
         {
-            return View();
+            IEnumerable<Product> products = await _homeRepository.GetProducts(sterm, categoryId);
+            IEnumerable<Category> categories = await _homeRepository.Categories();
+            ProductDisplayModel productModel = new ProductDisplayModel
+            {
+                Products = products,
+                Categories = categories,
+                STerm = sterm,
+                CategoryId = categoryId
+            };
+            return View(productModel);
         }
 
         public IActionResult Privacy()
