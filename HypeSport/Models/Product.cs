@@ -16,10 +16,10 @@ namespace HypeSport.Models
         public bool ProductStatus { get; set; }
         [Required]
         public string? ProductImage { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }
-        public List<CartDetail> CartDetails { get; set; }
+        public List<OrderDetail>? OrderDetails { get; set; }
+        public List<CartDetail>? CartDetails { get; set; }
     }
 }

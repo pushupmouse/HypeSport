@@ -11,6 +11,6 @@ namespace HypeSport.Models
         [MaxLength(30)]
         public string? CategoryName { get; set; }
         public string? CategoryDescription { get; set; }
-        public List<Product> Products { get; set; }
+        public List<Product>? Products { get; set; }
     }
 }
