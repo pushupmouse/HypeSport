@@ -1,4 +1,5 @@
 using HypeSport.Data;
+using HypeSport.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ builder.Services
     .AddDefaultUI()
     .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<ICartRepository, CartRepository>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
