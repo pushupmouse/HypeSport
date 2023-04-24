@@ -50,8 +50,27 @@
                     Category: @product.CategoryName
                 </p>
                 <p>Price: @product.ProductPrice</p>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <button type="button" onclick="add(@product.ProductId)" class="btn btn-primary">Add to Cart</button>
             </div>
         </div>
     }
 </div>
+
+@section Scripts{
+    <script>
+        async function add(bookId){
+            try{
+                var response = await fetch(`/Cart/AddItem?productId=${bookId}`);
+                if(response.status == 200{
+                    var result = await response.json();
+                    console.log(result);
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+                }
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+    </script>
+}

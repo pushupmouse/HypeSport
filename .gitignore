@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/HypeSport/Controllers/CartController.cs
+/HypeSport/wwwroot/images/NoImage.png
+/HypeSport/Views/Home/Index.cshtml
+/HypeSport/appsettings.json

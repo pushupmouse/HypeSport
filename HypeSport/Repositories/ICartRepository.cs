@@ -4,8 +4,10 @@ namespace HypeSport.Repositories
 {
     public interface ICartRepository
     {
-        Task<bool> AddItem(int productId, int quantity);
-        Task<bool> RemoveItem(int productId);
+        Task<int> AddItem(int productId, int quantity);
+        Task<int> RemoveItem(int productId);
         Task<Cart> GetUserCart();
+        Task<Cart> GetCart(string userId);
+        Task<int> GetCartItemCount(string userId = "");
     }
 }
