@@ -46,7 +46,6 @@
             <div class="card-body">
                 <h5 class="card-title">@product.ProductName</h5>
                 <p class="card-text">
-                    <b>Category: </b>@product.CategoryName<br/>
                     <b>Quantity: </b>@product.ProductQuantity<br/>
                     <b>Price: </b>@product.ProductPrice<br />
                 </p>
@@ -58,6 +57,7 @@
 
 @section Scripts{
     <script>
+        var result = 0;
         async function add(productId) {
             var usernameEl = document.getElementById("username");
             if (usernameEl == null) {
@@ -66,7 +66,7 @@
             try {
                 var response = await fetch(`/Cart/AddItem?productId=${productId}`);
                 if (response.status == 200) {
-                    var result = await response.json();
+                    result = result + 1;
                     var cartCountEl = document.getElementById("cartCount");
                     cartCountEl.innerHTML = result;
                     window.location.href = "#cartCount";

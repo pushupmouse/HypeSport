@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace HypeSport.Data.Migrations
+namespace HypeSport.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230425112054_grr")]
-    partial class grr
+    [Migration("20230425131941_notthefirstmigration123")]
+    partial class notthefirstmigration123
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

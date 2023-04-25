@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace HypeSport.Data.Migrations
+namespace HypeSport.Migrations
 {
     /// <inheritdoc />
-    public partial class dummy : Migration
+    public partial class notthefirstmigration123 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

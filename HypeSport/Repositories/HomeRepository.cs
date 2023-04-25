@@ -30,7 +30,8 @@ namespace HypeSport.Repositories
                                 ProductName = product.ProductName,
                                 CategoryId = product.CategoryId,
                                 ProductPrice = product.ProductPrice,
-                                CategoryName = product.CategoryName
+                                CategoryName = product.CategoryName,
+                                ProductQuantity = product.ProductQuantity
                             }
                             ).ToListAsync();
             if (categoryId > 0)

@@ -35,8 +35,8 @@
                     <td>@item.Product.ProductPrice X @item.Quantity</td>
                     <td>@(item.Product.ProductPrice * item.Quantity)</td>
                     <td>
-                        <a class="btn btn-info" href="/Cart/AddItem?bookId=@item.ProductId&&redirect=1">+</a>
-                        <a class="btn btn-info" href="/cart/removeitem?bookid=@item.ProductId">-</a>
+                        <a class="btn btn-info" href="/Cart/AddItem?productId=@item.ProductId&&redirect=1">+</a>
+                        <a class="btn btn-info" href="/cart/removeitem?productid=@item.ProductId">-</a>
                     </td>
                 </tr>
             }
