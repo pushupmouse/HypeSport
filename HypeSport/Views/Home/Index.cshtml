@@ -46,8 +46,9 @@
             <div class="card-body">
                 <h5 class="card-title">@product.ProductName</h5>
                 <p class="card-text">
+                    <b>Category: </b>@product.CategoryName<br />
                     <b>Quantity: </b>@product.ProductQuantity<br/>
-                    <b>Price: </b>@product.ProductPrice<br />
+                    <b>Price: $</b>@product.ProductPrice<br />
                 </p>
                 <button type="button" onclick="add(@product.ProductId)" class="btn btn-primary">Add to cart</button>
             </div>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HypeSport.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230425131941_notthefirstmigration123")]
-    partial class notthefirstmigration123
+    [Migration("20230425142519_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
