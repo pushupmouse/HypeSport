@@ -9,5 +9,6 @@ namespace HypeSport.Repositories
         Task<Cart> GetUserCart();
         Task<Cart> GetCart(string userId);
         Task<int> GetCartItemCount(string userId = "");
+        Task<bool> DoCheckout();
     }
 }

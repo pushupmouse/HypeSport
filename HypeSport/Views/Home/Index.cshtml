@@ -2,55 +2,55 @@
 @{
 
 }
-
 <div class="my-2">
     <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
-
-  <div class="col-12">
-    <label class="visually-hidden" for="categoryId">Category</label>
-    <select class="form-select" id="categoryId" name="categoryId">
-      <option selected>Category</option>
-        @foreach(var category in Model.Categories)
+        <div class="col-12">
+            <label class="visually-hidden" for="CategoryId">Categories</label>
+            <select class="form-select" id="categoryId" name="categoryId">
+                <option selected>Cateogory</option>
+                @foreach (var category in Model.Categories)
                 {
                     <option selected="@(category.CategoryId == Model.CategoryId)" value="@category.CategoryId">@category.CategoryName</option>
                 }
-    </select>
-  </div>
+            </select>
+        </div>
 
-		<div class="col-12">
-            <label class="visually-hidden" for="sterm">Search by Name</label>
+        <div class="col-12">
+            <label class="visually-hidden" for="sterm">Search by name</label>
             <div class="input-group">
                 <div class="input-group-text"></div>
-                <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Search by Name">
+                <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Search by name">
             </div>
         </div>
 
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Search</button>
-    <a href="/Home/Index" type="reset" class="btn btn-dark">Reset</a>
-  </div>
-</form>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href="/Home/Index" class="btn btn-dark">Reset</a>
+        </div>
+    </form>
 </div>
 
-<div class="w-100 mt-4 d-flex flex-wrap">
+<div class="w-100 mt-4 d-flex flex-wrap ">
     @foreach (var product in Model.Products)
     {
-        <div class="card mx-2 mb-4" style="width: 15rem;">
-            @if(string.IsNullOrEmpty(product.ProductImage))
+        <div class="card mx-3 mb-4" style="width: 11rem;">
+            @if (string.IsNullOrEmpty(product.ProductImage))
             {
-                <img style="width:100%;height:300px" src="/images/NoImage.png" class="card-img-top" alt="...">
+                <img style="width:100%;height:180px" src="/images/NoImage.png" class="card-img-top" alt="...">
+
             }
             else
             {
-                <img style="width:100%;height:300px" src="/images/@product.ProductImage" class="card-img-top" alt="...">
+                <img style="width:100%;height:180px" src="/images/@product.ProductImage" class="card-img-top" alt="...">
             }
             <div class="card-body">
                 <h5 class="card-title">@product.ProductName</h5>
                 <p class="card-text">
-                    Category: @product.CategoryName
+                    <b>Category: </b>@product.CategoryName<br/>
+                    <b>Quantity: </b>@product.ProductQuantity<br/>
+                    <b>Price: </b>@product.ProductPrice<br />
                 </p>
-                <p>Price: @product.ProductPrice</p>
-                <button type="button" onclick="add(@product.ProductId)" class="btn btn-primary">Add to Cart</button>
+                <button type="button" onclick="add(@product.ProductId)" class="btn btn-primary">Add to cart</button>
             </div>
         </div>
     }
@@ -58,17 +58,21 @@
 
 @section Scripts{
     <script>
-        async function add(bookId){
-            try{
-                var response = await fetch(`/Cart/AddItem?productId=${bookId}`);
-                if(response.status == 200{
+        async function add(productId) {
+            var usernameEl = document.getElementById("username");
+            if (usernameEl == null) {
+                window.location.href = "/Identity/Account/Login";
+            }
+            try {
+                var response = await fetch(`/Cart/AddItem?productId=${productId}`);
+                if (response.status == 200) {
                     var result = await response.json();
-                    console.log(result);
                     var cartCountEl = document.getElementById("cartCount");
                     cartCountEl.innerHTML = result;
+                    window.location.href = "#cartCount";
                 }
             }
-            catch(err){
+            catch (err) {
                 console.log(err);
             }
         }
