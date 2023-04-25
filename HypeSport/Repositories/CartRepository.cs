@@ -1,6 +1,7 @@
 ﻿using HypeSport.Data;
 using HypeSport.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 

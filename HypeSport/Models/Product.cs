@@ -22,6 +22,6 @@ namespace HypeSport.Models
         public List<CartDetail>? CartDetails { get; set; }
 
         [NotMapped]
-        public string CategoryName { get; set; }
+        public string? CategoryName { get; set; }
     }
 }
