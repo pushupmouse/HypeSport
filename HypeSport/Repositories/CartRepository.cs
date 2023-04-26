@@ -167,6 +167,7 @@ namespace HypeSport.Repositories
                     };
                     _db.OrderDetails.Add(orderDetail);
                 }
+
                 _db.SaveChanges();
 
                 // removing the cartdetails
