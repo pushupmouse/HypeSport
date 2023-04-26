@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HypeSport.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Customer")]
     public class UserOrderController : Controller
     {
         private readonly IUserOrderRepository _userOrderRepo;

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HypeSport.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Customer")]
     public class CartController : Controller
     {
         private readonly ICartRepository _cartRepo;
