@@ -152,7 +152,7 @@ namespace HypeSport.Repositories
                 {
                     UserId = userId,
                     CreateDate = DateTime.UtcNow,
-                    OrderStatusId = 1//pending
+                    OrderStatusId = 1 //pending
                 };
                 _db.Orders.Add(order);
                 _db.SaveChanges();

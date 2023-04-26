@@ -12,6 +12,7 @@ namespace HypeSport.Controllers
         {
             _cartRepo = cartRepo;
         }
+
         public async Task<IActionResult> AddItem(int productId, int qty = 1, int redirect = 0)
         {
             var cartCount = await _cartRepo.AddItem(productId, qty);
@@ -25,6 +26,7 @@ namespace HypeSport.Controllers
             var cartCount = await _cartRepo.RemoveItem(productId);
             return RedirectToAction("GetUserCart");
         }
+
         public async Task<IActionResult> GetUserCart()
         {
             var cart = await _cartRepo.GetUserCart();
